@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+		<h1>eVote</h1>
+        <form id='formLogin' method='post'>
+            <input type="text" name="username" value='{{username}}' placeholder=' username' required><br>
+            <input type="password" name="password" value='{{password}}' placeholder=' password' required> <p class='errors'>{{invalid}}</p>
+            <input type="submit" name='clicked' value="login" class='loginBtn'>
+        </form>
+{% endblock %}

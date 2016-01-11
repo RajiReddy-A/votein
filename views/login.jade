@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    title Vote Point - The Decider
+    link(href="/stylesheets/style.css", rel="stylesheet", type="text/css")
+  body
+    #header
+      a(href="/")
+        h2 eVote
+    #title
+      h1 eVote Point
+      p  Your poll creator
+    #loginsignup
+      button#log.logSign.textGreen
+        | LOG IN
+      button#sign.logSign
+        | SIGN UP
+    form#formLogin
+      input(type="text", name="email", placeholder=" email")
+      br
+      input(type="password", name="password", placeholder=" password")
+      br
+      br
+      input.loginBtn(type="submit", value="LOG IN")
+    form#formSignup
+      input(type="text", name="username", placeholder="username")
+      br
+      input(type="text", name="email", placeholder="email")
+      br
+      input(type="password", name="password", placeholder="password")
+      br
+      br
+      input.loginBtn(type="submit", value="SIGN UP")
+    script(type="text/javascript", src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+    script(type="text/javascript", src="/javascripts/login.js")

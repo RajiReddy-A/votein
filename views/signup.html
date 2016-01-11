@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+		<h1>eVote</h1>
+        <form id='formSignup' method='post'>
+            <input type="text" name="username" value='{{username}}' placeholder=' username' required> <p class='errors'>{{invalidName}}</p>
+            <input type="password" name="password" value='{{password}}' placeholder=' password' required> <p class='errors'>{{invalidPass}}</p>
+            <input type="password" name="verify" value='{{verify}}' placeholder='  verify password' required> <p class='errors'>{{invalidVerify}}</p>
+            <input type="text" name="email" value='{{email}}' placeholder=' email (optional)'> <p class='errors'>{{invalidEmail}}</p>
+            <input type="submit" name='clicked' value="signup" class='loginBtn'>
+        </form>
+{% endblock %}

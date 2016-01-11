@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Vote Point - The Decider</title>
+        <link href="/stylesheets/style.css" rel="stylesheet" type="text/css">
+    </head>
+
+    <body>
+        {% if theUser %}
+            <div class='header' id='loggedout'>
+                <div class='inhead home'>
+                    <a class='logsign' href='/'>eVote</a>
+                </div>
+
+                <div class='logsigndiv inhead'>
+                        <div class='logsign'><a href=''>{{ theUser }}</a></div>
+                        <div class='logsign' id='logout'><a href='javascript:void(0)'>Log out</a></div>
+                </div>
+            </div>
+        {% else %}
+            <div class='header' id='loggedout'>
+                <div class='inhead home'>
+                    <a class='logsign' href='/'>eVote</a>
+                </div>
+
+                <div class='logsigndiv inhead'>
+                        <div class='logsign'><a href='/signup'>SIGNUP</a></div>
+                        <div class='logsign'><a href='/login'>LOGIN</a></div>
+                </div>
+            </div>
+        {% endif %}
+        
+        
+        
+    	{% block content %}
+
+    	{% endblock %}
+
+		<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="/javascripts/script.js"></script>
+    </body>
+</html>

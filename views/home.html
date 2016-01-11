@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+	{% if theUser %}
+		<h1>Create Poll</h1>
+		<form method='post'>
+			<h3>Title</h3>
+			<input type='text' name='title' required>
+			<h3>Options</h3>
+			<input type='text' name='option1' required><br>
+			<input type='text' name='option2' required><br>
+			<span class='addOptions'></span>
+			<button class='options'>More Options?</button>
+			<input type='submit'>
+		</form>
+
+	{% else %}
+		<h3><a class='noLine' href="/login">Login to create a poll</a></h3>
+	{% endif %}
+
+	<h3>Recent polls</h3>
+	{% for poll in polls %}
+		<a href="/poll/{{ poll._id }}"> {{ poll.title }} </a> <br>
+		{% for option,votes in poll.options %}
+			{{ option }} : {{ votes }} </br>
+		{% endfor %}
+	{% endfor %}
+{% endblock %}

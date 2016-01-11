@@ -1,0 +1,95 @@
+html{
+    margin:0;
+    padding:0;
+}
+
+body{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+.header{
+    width: 100%;
+    height: 2em;
+    background-color: #1e3547;
+}
+
+.header a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.noLine{
+    text-decoration: none;
+}
+
+.inhead{
+    display: inline;
+}
+
+.home{
+    float: left;
+    background-color: white;
+    margin-left: 1em;
+    #margin-top: 1em;
+}
+
+.logsign{
+    display: inline-block;
+    background-color: #4285F4;
+    color: transparent;
+    height: 2em;
+    line-height: 2em;
+    padding: 0 0.5em 0 0.5em;
+}
+
+.logsigndiv{
+    display: inline-block;
+    float: right;
+    margin-right: 1em;
+    #margin-top: 1em;
+}
+
+#title{
+    width:100%;
+    height:10em;
+    text-align:center;
+}
+
+.logSign{
+    display:inline-block;
+    padding:0.5em;
+    background:white;
+    border:solid 1px lightgreen;
+    width:6.3em;
+}
+
+#loginsignup{
+    text-align:center;
+}
+
+.textGreen{
+    color:green;
+}
+
+#formLogin{
+    text-align:center;
+}
+
+#formSignup{
+    text-align:center;
+}
+
+
+.loginBtn{
+    background:#34B3A0;
+    color:white;
+    width:13em;
+    height:2em;
+}
+
+.errors{
+    color: red;
+}
