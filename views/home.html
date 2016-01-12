@@ -18,10 +18,23 @@
 	{% endif %}
 
 	<h3>Recent polls</h3>
-	{% for poll in polls %}
-		<a href="/poll/{{ poll._id }}"> {{ poll.title }} </a> <br>
-		{% for option,votes in poll.options %}
-			{{ option }} : {{ votes }} </br>
-		{% endfor %}
+	{% for i in range(0,polls.length) %}
+		<div id="theDiv{{ i }}">
+			<h2>{{ polls[i].title }}</h2> <br>
+			<a href="/poll/{{ polls[i]._id }}"> <b>VOTE?</b> </a> <br><br>
+			<!-- <div id="js-legend{{ i }}" class='chart-legend'></div> -->
+		</div> 
+		<div class='textChartRow'>
+			{% for option,votes in polls[i].options %}
+				{{ option }} : {{ votes }} </br>
+			{% endfor %}
+		</div>
+		<br><hr>
 	{% endfor %}
+
+	<div id='chartStore'></div>
+	<canvas id="myChart" width="400" height="400"></canvas>
+	<textarea name="hide" id='forClient' style="display:none">{{ stringifiedPolls }}</textarea>
+	<!-- Identify where the chart should be drawn. 
+	<div id="myPieChart"></div> -->
 {% endblock %}

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var crypto = require('crypto');
-var secret="XXXXX";
+var secret="notasecret";
 
 function validCheck (exp,name) {
 	return exp.test(name);
@@ -16,8 +16,10 @@ function make_salt(){
 	return salt;
 }
 
-function make_pw_hash(name, pw){
-	var salt=make_salt();
+function make_pw_hash(name, pw, salt){
+	if(!salt){
+		salt=make_salt();
+	}
 	var h = crypto.createHash('sha256').update(name+pw+salt).digest("hex");
 	return h+'|'+salt;
 }
@@ -64,19 +66,17 @@ router.post('/',function(req,res,next){
 		if(userCheck && password===verify && passCheck && (!email || emailCheck)){
 			
 			user.findOne({'username':username},function(err,docs){
-				console.log(docs);
 				if(docs){
 					res.render('signup',{username:username,email:email,invalidName:'username already exists'});
 				}
 				else{
 					user.insert({
 						'username':username,
-						'password':make_pw_hash(username,password),
+						'password':make_pw_hash(username,password, false),
 						'email':email
 					},function(err,docs){
 						res.cookie('username',make_secure_val(username),{path:'/'});
 						res.redirect('/');
-						//res.send("welcome, "+username+"!");
 					});
 				}
 			});
@@ -92,5 +92,7 @@ router.post('/',function(req,res,next){
 
 module.exports = {
 	router : router,
-	get_user: get_user
+	get_user: get_user,
+	make_secure_val: make_secure_val,
+	make_pw_hash: make_pw_hash
 };
