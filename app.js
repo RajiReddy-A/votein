@@ -56,8 +56,6 @@ MongoClient.connect(URL,function(err,database){
   if(!err){
     //var db1=MongoClient.db('dev-db');
     db=database;
-    var testing=db.collection('testing');
-    testing.insert({'second':'inserted inside testing'});
     console.log("seems like a success");
   }
   else{
