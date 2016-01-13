@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var nunjucks= require('nunjucks');
 var mongodb= require('mongodb');
 var MongoClient= mongodb.MongoClient;
-var URL = 'mongodb://127.0.0.1:27017/mainDB';
+var URL = "mongodb://rajireddy:themongolabserver@ds031922.mongolab.com:31922/maindb";
 //var config= require('config');
 
 var login = require('./routes/login').router;
