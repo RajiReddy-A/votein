@@ -22,8 +22,16 @@ router.post('/',function(req,res,next){
 	username=req.body.username;
 	password=req.body.password;
 	var user=db.collection('user');
+	//console.log('before req.body');
+	//console.log(req.body);
+	//console.log(req.body.password);
 	user.findOne({'username':username},function(err,docs){
-		var isValid= valid_pw(username,password,docs.password);
+		//console.log(docs);
+		var storedPass='';
+		if(docs){
+			storedPass=docs.password;
+		}
+		var isValid= valid_pw(username,password,storedPass);
 		if(isValid){
 			res.cookie('username',signup.make_secure_val(username),{path:'/'});
 			res.redirect('/');
