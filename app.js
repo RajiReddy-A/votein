@@ -1,4 +1,5 @@
 var express = require('express');
+var app = express();
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -8,6 +9,7 @@ var nunjucks= require('nunjucks');
 var mongodb= require('mongodb');
 var MongoClient= mongodb.MongoClient;
 var URL = "mongodb://rajireddy:themongolabserver@ds031922.mongolab.com:31922/maindb";
+//var URL = 'mongodb://127.0.0.1:27017/mainDB';
 //var config= require('config');
 
 var login = require('./routes/login').router;
@@ -15,8 +17,6 @@ var users = require('./routes/users');
 var signup = require('./routes/signup').router;
 var home = require('./routes/home').router;
 var poll = require('./routes/poll').router;
-
-var app = express();
 
 /*
 var env = new nunjucks.Environment(new nunjucks.FileSystemLoader(config.root + './views'));
@@ -41,7 +41,7 @@ app.set( 'view engine', 'html' ) ;
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 app.use(logger('dev'));
-app.use(express.bodyParser());
+//app.use(express.bodyParser());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
